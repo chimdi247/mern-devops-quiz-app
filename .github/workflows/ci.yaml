@@ -2,8 +2,11 @@ name: React.js CI
 
 on:
   pull_request:
-    branches: ["master"]
-
+    branches:
+      - master
+  push:
+    branches:
+      - master
 jobs:
   frontend-test:
     runs-on: ubuntu-latest
@@ -89,7 +92,7 @@ jobs:
       - name: Analyze with SonarCloud
         uses: sonarsource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           projectBaseDir: backend
