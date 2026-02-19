@@ -4,6 +4,8 @@ const cors = require("cors"); // For handling cross-origin requests
 // const helmet = require('helmet'); // Import helmet
 // const csrf = require('csurf'); // Import csurf
 // const cookieParser = require('cookie-parser'); // Import cookie-parser for CSRF token handling
+const importData = require("./populateDB"); // Import the function to populate the database
+//import { importData } from './populateDB';
 
 const app = express();
 const port = 3000;
@@ -77,4 +79,5 @@ app.post("/api/questions", async (req, res) => {
 // Start the server
 app.listen(port, "0.0.0.0", () => {
   console.log(`Quiz API listening at http://0.0.0.0:${port}`);
+  importData(); // Call the function to populate the database when the server starts
 });

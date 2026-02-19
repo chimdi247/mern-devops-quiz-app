@@ -13,7 +13,7 @@ mongoose
   .then(() => console.log("MongoDB connection established"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
-const importData = async () => {
+export const importData = async () => {
   try {
     await Question.deleteMany(); // Optional: clear the collection before insertion
     await Question.insertMany(data);
